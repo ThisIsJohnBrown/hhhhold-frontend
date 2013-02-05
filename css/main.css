@@ -229,7 +229,6 @@ header {
 .examples {
   width: 960px;
   margin: 0 auto 30px auto;
-  overflow: hidden;
   background-position: center center; }
   .examples .row-1 {
     overflow: hidden;
@@ -265,6 +264,7 @@ header {
         margin: 0 0 15px 0;
         padding: 0; }
   .examples .refresh {
+    clear: both;
     margin: 0 0 50px 0;
     text-align: center; }
     .examples .refresh a {
