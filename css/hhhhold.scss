@@ -79,7 +79,7 @@ body {
 }
 
 .right {
-	background-color: darken($secondary-color, 5%);
+	background-color: #eee;
 	width: 50%;
 	float: right;
 	height: 100%;
@@ -92,7 +92,7 @@ body {
 	}
 
 	a:hover {
-		color: #fff;
+		color: $secondary-color;
 	}
 
 	.inside {
@@ -103,7 +103,7 @@ body {
 	h2 {
 		font-size: 28px;
 		margin: 0;
-		color: #fff;
+		color: darken($secondary-color, 5%);
 		font-weight: 600;
 	}
 
@@ -132,7 +132,7 @@ body {
 			list-style: none;
 			background-color: darken($secondary-color, 15%);
 			border: 1px solid darken($secondary-color, 18%);
-			color: lighten($secondary-color, 25%);
+			color: #fff;
 			border-radius: 3px;
 			padding: 5px 8px;
 			cursor: pointer;
@@ -154,9 +154,6 @@ body {
 	}
 
 	.fb-container {
-		background-color: #eee;
-		border-radius: 3px;
-		border: 1px solid darken($secondary-color, 10%);
 		padding: 5px;
 		height: 24px;
 		margin: 30px 0 0 0;
@@ -178,7 +175,7 @@ body {
 				border: 1px solid darken($secondary-color, 18%);
 				border-radius: 3px;
 				text-align: center;
-				color: lighten($secondary-color, 25%);
+				color: #fff;
 				font-size: 18px;
 				line-height: 24px;
 				padding: 0;
@@ -237,7 +234,7 @@ body {
 				color: $primary-color;
 
 				&:hover {
-					color: #fff;
+					color: $secondary-color;
 				}
 			}
 
@@ -255,7 +252,7 @@ body {
 		margin: 0 -50px -50px -50px;
 		overflow: hidden;
 		text-align: center;
-		border-top: 1px solid darken($secondary-color, 15%);
+		border-top: 1px solid #bbb;
 
 		.bro {
 			overflow: hidden;

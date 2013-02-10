@@ -196,7 +196,7 @@ body {
     z-index: 8888; }
 
 .right {
-  background-color: #e44e3c;
+  background-color: #eee;
   width: 50%;
   float: right;
   height: 100%;
@@ -206,14 +206,14 @@ body {
     color: #261a51;
     text-decoration: underline; }
   .right a:hover {
-    color: #fff; }
+    color: #e76252; }
   .right .inside {
     padding: 50px;
     overflow-y: scroll; }
   .right h2 {
     font-size: 28px;
     margin: 0;
-    color: #fff;
+    color: #e44e3c;
     font-weight: 600; }
   .right h3 {
     font-size: 18px;
@@ -235,7 +235,7 @@ body {
       list-style: none;
       background-color: #d0301d;
       border: 1px solid #c22d1b;
-      color: #f7c8c2;
+      color: #fff;
       border-radius: 3px;
       padding: 5px 8px;
       cursor: pointer;
@@ -250,9 +250,6 @@ body {
         top: 1px;
         padding-bottom: 4px; }
   .right .fb-container {
-    background-color: #eee;
-    border-radius: 3px;
-    border: 1px solid #e13925;
     padding: 5px;
     height: 24px;
     margin: 30px 0 0 0; }
@@ -270,7 +267,7 @@ body {
         border: 1px solid #c22d1b;
         border-radius: 3px;
         text-align: center;
-        color: #f7c8c2;
+        color: #fff;
         font-size: 18px;
         line-height: 24px;
         padding: 0;
@@ -310,7 +307,7 @@ body {
         font-size: 22px;
         color: #2f2064; }
         .right .extensions li .extension:hover {
-          color: #fff; }
+          color: #e76252; }
       .right .extensions li p {
         margin: 0 0 20px 0;
         padding: 0;
@@ -321,7 +318,7 @@ body {
     margin: 0 -50px -50px -50px;
     overflow: hidden;
     text-align: center;
-    border-top: 1px solid #d0301d; }
+    border-top: 1px solid #bbb; }
     .right .cute-bros .bro {
       overflow: hidden;
       width: 210px;
