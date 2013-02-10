@@ -24,10 +24,10 @@ $(document).ready ->
 			img = (new Image())
 
 			if not params
-				img.src = "http://hhhhold.com/#{width}x#{height}?homepage=true"
+				img.src = "https://hhhhold.com/#{width}x#{height}?homepage=true"
 				url = "hhhhold.com/#{width}x#{height}"
 			else
-				img.src = "http://hhhhold.com/#{params}?homepage=true"
+				img.src = "https://hhhhold.com/#{params}?homepage=true"
 				url = "hhhold.com/#{params}"
 
 			$('.hhhhold-up img').fadeOut('slow', ->
