@@ -1,13 +1,37 @@
 $(document).ready ->
 
-	viewportWidth = $(window).width()
-	viewportHeight = $(window).height()
+	init = () ->
+		viewportWidth = $(window).width()
+		viewportHeight = $(window).height()
 
-	$('.right, .left').css('height', viewportHeight)
-	$('.right .inside').css('height', viewportHeight - 100)
+		$('.right, .left').css('height', viewportHeight)
+		$('.right .inside').css('height', viewportHeight - 100)
+
+	reposition = (img, width, height) ->
+		viewportWidth = $(window).width()
+		viewportHeight = $(window).height()
+		$('.right, .left').css('height', viewportHeight)
+		$('.right .inside').css('height', viewportHeight - 100)
+
+		topOffset = ((viewportHeight - height) / 2) - 35
+		leftOffset = (((viewportWidth / 2) - width) / 2) - 12
+
+		$('.top').css(top: topOffset, left: leftOffset)
+		$('.top').css(width: width, height: height)
+		$('.hhhhold-up').css(width: width, height: height)
+		$('.top h1').css(width: width, lineHeight: height + 'px', fontSize: width/6 + 'px')
+
+	onResize = () ->
+		img = $('.hhhhold-up img')
+
+		reposition(img, img.width(), img.height())
+
+		
 
 	wizardry = (width, height, params) ->
-
+			viewportWidth = $(window).width()
+			viewportHeight = $(window).height()
+			
 			if viewportWidth < 500
 				framePadding = 20
 			else
@@ -37,26 +61,20 @@ $(document).ready ->
 			$(img).load( -> 
 				if $('.hhhhold-up img').length < 1
 
-					width = img.width
-					height = img.height
-
-					topOffset = ((viewportHeight - height) / 2) - 35
-					leftOffset = (((viewportWidth / 2) - width) / 2) - 12
-
-					$('.top').css(top: topOffset, left: leftOffset)
-					$('.top').css(width: width, height: height)
-					$('.hhhhold-up').css(width: width, height: height)
-					$('.top h1').css(width: width, lineHeight: height + 'px', fontSize: width/6 + 'px')
+					reposition(img, img.width, img.height)
 					$('.caption').text(url)
 
 					$(img).hide().appendTo('.hhhhold-up').delay(300).fadeIn('slow')
 			)
 
-
+	init()
 	wizardry()
 
 	$('.top').on('click', ->
 		wizardry()
+	)
+	$(window).on('resize', ->
+		onResize()
 	)
 	$('li[data-params], span[data-params]').on('click', ->
 		wizardry(width=null, height=null, params=$(this).data('params'))

@@ -2,13 +2,49 @@
 (function() {
 
   $(document).ready(function() {
-    var viewportHeight, viewportWidth, wizardry;
-    viewportWidth = $(window).width();
-    viewportHeight = $(window).height();
-    $('.right, .left').css('height', viewportHeight);
-    $('.right .inside').css('height', viewportHeight - 100);
+    var init, onResize, reposition, wizardry;
+    init = function() {
+      var viewportHeight, viewportWidth;
+      viewportWidth = $(window).width();
+      viewportHeight = $(window).height();
+      $('.right, .left').css('height', viewportHeight);
+      return $('.right .inside').css('height', viewportHeight - 100);
+    };
+    reposition = function(img, width, height) {
+      var leftOffset, topOffset, viewportHeight, viewportWidth;
+      viewportWidth = $(window).width();
+      viewportHeight = $(window).height();
+      $('.right, .left').css('height', viewportHeight);
+      $('.right .inside').css('height', viewportHeight - 100);
+      topOffset = ((viewportHeight - height) / 2) - 35;
+      leftOffset = (((viewportWidth / 2) - width) / 2) - 12;
+      $('.top').css({
+        top: topOffset,
+        left: leftOffset
+      });
+      $('.top').css({
+        width: width,
+        height: height
+      });
+      $('.hhhhold-up').css({
+        width: width,
+        height: height
+      });
+      return $('.top h1').css({
+        width: width,
+        lineHeight: height + 'px',
+        fontSize: width / 6 + 'px'
+      });
+    };
+    onResize = function() {
+      var img;
+      img = $('.hhhhold-up img');
+      return reposition(img, img.width(), img.height());
+    };
     wizardry = function(width, height, params) {
-      var framePadding, img, maxImgHeight, maxImgWidth, minImgHeight, minImgWidth, url;
+      var framePadding, img, maxImgHeight, maxImgWidth, minImgHeight, minImgWidth, url, viewportHeight, viewportWidth;
+      viewportWidth = $(window).width();
+      viewportHeight = $(window).height();
       if (viewportWidth < 500) {
         framePadding = 20;
       } else {
@@ -36,37 +72,20 @@
         return $(this).remove();
       });
       return $(img).load(function() {
-        var leftOffset, topOffset;
         if ($('.hhhhold-up img').length < 1) {
-          width = img.width;
-          height = img.height;
-          topOffset = ((viewportHeight - height) / 2) - 35;
-          leftOffset = (((viewportWidth / 2) - width) / 2) - 12;
-          $('.top').css({
-            top: topOffset,
-            left: leftOffset
-          });
-          $('.top').css({
-            width: width,
-            height: height
-          });
-          $('.hhhhold-up').css({
-            width: width,
-            height: height
-          });
-          $('.top h1').css({
-            width: width,
-            lineHeight: height + 'px',
-            fontSize: width / 6 + 'px'
-          });
+          reposition(img, img.width, img.height);
           $('.caption').text(url);
           return $(img).hide().appendTo('.hhhhold-up').delay(300).fadeIn('slow');
         }
       });
     };
+    init();
     wizardry();
     $('.top').on('click', function() {
       return wizardry();
+    });
+    $(window).on('resize', function() {
+      return onResize();
     });
     return $('li[data-params], span[data-params]').on('click', function() {
       var height, params, width;
